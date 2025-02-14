@@ -5,8 +5,9 @@ function Picture() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
+    const API_URL = import.meta.env.API_URL;
     axios
-      .get("http://localhost:4137/api/apod1")
+      .get(API_URL + "api/apod")
       .then((response) => setData(response.data))
       .catch((error) => console.error("Error fetching APOD:", error));
   }, []);
